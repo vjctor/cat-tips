@@ -1,0 +1,79 @@
+/* src/styles/theme.module.css */
+
+:root {
+    --clr-header:   #FF6B6B;
+    --clr-hero:     #4ECDC4;
+    --clr-card:     #FFE66D;
+    --clr-footer:   #556270;
+    --clr-light:    #FFFFFF;
+    --clr-dark:     #333333;
+  
+    --space-lg: 4rem;
+    --space-md: 2rem;
+    --space-sm: 1rem;
+  
+    --max-width: 1200px;
+  }
+  
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-md);
+  }
+  
+  .header {
+    background: var(--clr-header);
+    color: var(--clr-light);
+  }
+  .headerInner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) 0;
+  }
+  .navLink {
+    color: var(--clr-light);
+    margin-left: var(--space-sm);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .navLinkActive {
+    font-weight: 700;
+    text-decoration: underline;
+  }
+  
+  .hero {
+    background: var(--clr-hero);
+    color: var(--clr-light);
+    text-align: center;
+    padding: var(--space-lg) 0;
+  }
+  
+  .dicasContainer {
+    padding: var(--space-lg) 0;
+    background: var(--clr-light);
+  }
+  .dicasGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-md);
+  }
+  .dicaCard {
+    background: var(--clr-card);
+    color: var(--clr-dark);
+    padding: var(--space-md);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform .2s;
+  }
+  .dicaCard:hover {
+    transform: translateY(-4px);
+  }
+  
+  .footer {
+    background: var(--clr-footer);
+    color: var(--clr-light);
+    text-align: center;
+    padding: var(--space-md) 0;
+  }
+  
