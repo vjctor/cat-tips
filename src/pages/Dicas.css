@@ -1,6 +1,6 @@
 .dicas-container {
-  padding: 2rem;
-  font-family: sans-serif;
+  /* já importa o padding da classe container */
+  padding: 0; /* se quiser pois container já faz */
 }
 .dicas-grid {
   display: grid;
@@ -8,12 +8,9 @@
   gap: 1rem;
 }
 .dica-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  background: #fff;
-  transition: transform .2s;
+  background-color: var(--card-bg);
+  color: var(--text-dark);
+  border: 1px solid var(--link-color);
 }
 .dica-card:hover {
   transform: translateY(-4px);

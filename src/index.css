@@ -1,68 +1,186 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* ----------------------------------------
+   Variáveis de tema e espaçamentos
+   ---------------------------------------- */
+   :root {
+    /* Tipografia */
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  
+    /* Cores globais */
+    color-scheme: light dark;
+    --color-dark: rgba(255, 255, 255, 0.87);
+    --bg-dark: #242424;
+  
+    /* Paleta vibrante */
+    --header-bg:  #FF6B6B;   /* rosa-alaranjado */
+    --hero-bg:    #4ECDC4;   /* verde-água */
+    --card-bg:    #FFE66D;   /* amarelo claro */
+    --footer-bg:  #556270;   /* cinza-azulado */
+    --text-light: #FFFFFF;
+    --text-dark:  #333333;
+    --link-color: #FF6B6B;
+    --link-hover: #FFA07A;   /* salmão claro */
+  
+    /* Espaçamentos */
+    --container-h-padding: 1rem;
+    --container-v-padding: 2rem;
+    --section-v-padding:   4rem;
+  
+    /* Largura máxima do container */
+    --max-width: 1200px;
+  }
+  
+  /* ----------------------------------------
+     Reset e elementos globais
+     ---------------------------------------- */
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    min-width: 320px;
+    color: var(--color-dark);
+    background-color: var(--bg-dark);
+  }
+  
+  /* Links */
+  a {
+    font-weight: 500;
+    color: var(--link-color);
+    text-decoration: none;
   }
   a:hover {
-    color: #747bff;
+    color: var(--link-hover);
   }
+  
+  /* Títulos */
+  h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+  }
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Botões */
   button {
-    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: border-color 0.25s;
   }
-}
+  button:hover {
+    border-color: var(--link-color);
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+  
+  /* ----------------------------------------
+     Tema claro
+     ---------------------------------------- */
+  @media (prefers-color-scheme: light) {
+    :root {
+      --color-dark: #213547;
+      --bg-dark: #ffffff;
+    }
+    a:hover {
+      color: #747bff;
+    }
+    button {
+      background-color: #f9f9f9;
+      color: var(--color-dark);
+    }
+  }
+  
+  /* ----------------------------------------
+     Layout de container centralizado
+     ---------------------------------------- */
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--container-v-padding) var(--container-h-padding);
+  }
+  
+  /* Padding extra em seções principais */
+  section,
+  main {
+    padding-top: var(--section-v-padding);
+    padding-bottom: var(--section-v-padding);
+  }
+  
+  /* ----------------------------------------
+     Estilos específicos
+     ---------------------------------------- */
+  /* Header */
+  header {
+    background-color: var(--header-bg);
+    color: var(--text-light);
+  }
+  .header .container,
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--container-v-padding) 0;
+  }
+  .header a,
+  header a {
+    color: var(--text-light);
+    margin-left: 1rem;
+  }
+  .header a:first-child,
+  header a:first-child {
+    margin-left: 0;
+  }
+  .header a:hover,
+  header a:hover {
+    color: var(--link-hover);
+  }
+  
+  /* Hero */
+  .hero {
+    background-color: var(--hero-bg);
+    color: var(--text-light);
+    text-align: center;
+  }
+  .hero .container {
+    padding: var(--section-v-padding) 0;
+  }
+  
+  /* Cards de dica (Dicas.css herda .dica-card) */
+  .dica-card {
+    background-color: var(--card-bg);
+    color: var(--text-dark);
+    border: 1px solid var(--link-color);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .dica-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  }
+  
+  /* Footer */
+  footer {
+    background-color: var(--footer-bg);
+    color: var(--text-light);
+  }
+  .footer .container,
+  footer .container {
+    text-align: center;
+    padding: var(--container-v-padding) 0;
+    font-size: 0.9rem;
+  }
+  

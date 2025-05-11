@@ -5,7 +5,7 @@ import Footer from '../components/Footer.jsx'
 
 export default function Home() {
   return (
-    <div>
+    <div className= "container">
       <Header />
       <Hero />
       <Footer />

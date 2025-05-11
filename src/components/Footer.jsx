@@ -1,13 +1,14 @@
+// src/components/Footer.jsx
+import { Box, Typography, Container } from '@mui/material';
+
 export default function Footer() {
-    return (
-      <footer style={{
-        padding: '1rem 2rem',
-        borderTop: '1px solid #ddd',
-        textAlign: 'center',
-        fontSize: '0.9rem'
-      }}>
-        Feito com ❤️ em memória do Caqui
-      </footer>
-    );
-  }
-  
+  return (
+    <Box component="footer" sx={{ bgcolor: 'primary.dark', color: 'primary.contrastText', py: 4 }}>
+      <Container maxWidth="lg">
+        <Typography variant="body2" align="center">
+          Feito com ❤️ em memória do Caqui
+        </Typography>
+      </Container>
+    </Box>
+  );
+}
