@@ -1,9 +1,15 @@
+// src/components/Hero.jsx
+import React from 'react';
+import '../styles/Home.css';
+
 export default function Hero() {
-    return (
-      <section style={{ padding: '4rem 2rem', textAlign: 'center' }}>
-        <h2>Em memória do Caqui</h2>
-        <p>Este espaço existe graças ao meu gatinho Caqui. Que suas patinhas estejam sempre em nossas lembranças.</p>
-      </section>
-    );
-  }
-  
+  return (
+    <div id="home" className="hero">
+      <div className="hero-content">
+        <h1>Bem-vindo ao Cat-Tips</h1>
+        <p>Transforme a vida do seu gatinho com adestramento profissional</p>
+        <a href="#tips" className="btn">Comece Agora</a>
+      </div>
+    </div>
+  );
+}

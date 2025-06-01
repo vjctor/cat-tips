@@ -1,23 +1,20 @@
-import { NavLink } from 'react-router-dom';
+// src/components/Header.jsx
+import React from 'react';
+import '../styles/Home.css';
 
 export default function Header() {
   return (
-    <header style={{
-      padding: '1rem 2rem',
-      borderBottom: '1px solid #ddd',
-      display: 'flex',
-      justifyContent: 'space-between'
-    }}>
-      <h1>Cat-Tips 🐾</h1>
-      <nav>
-        <NavLink to="/" end style={({ isActive }) => ({ fontWeight: isActive ? 'bold' : 'normal' })}>
-          Home
-        </NavLink>
-        {' | '}
-        <NavLink to="/dicas" style={({ isActive }) => ({ fontWeight: isActive ? 'bold' : 'normal' })}>
-          Dicas
-        </NavLink>
-      </nav>
+    <header>
+      <div className="header-container">
+        <nav className="header-nav">
+          <a href="#home">Início</a>
+          <a href="#about">Sobre</a>
+          <a href="#tips">Dicas</a>
+          <a href="#testimonials">Depoimentos</a>
+          <a href="#videos">Vídeos</a>
+          <a href="#contact">Contato</a>
+        </nav>
+      </div>
     </header>
   );
 }
