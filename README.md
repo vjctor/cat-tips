@@ -1,82 +1,95 @@
-# cat-tips
-# 🐱 Plataforma Web de Adestramento Felino
+🐱 Cat-Tips – Plataforma Web de Adestramento Felino
+Projeto desenvolvido como parte da disciplina Usabilidade, Desenvolvimento Web, Mobile e Jogos, com foco em Front-End usando React e Vite. A plataforma tem como objetivo oferecer dicas e informações sobre adestramento felino de forma intuitiva, responsiva e acessível.
 
-Projeto desenvolvido como parte da disciplina **Usabilidade, Desenvolvimento Web, Mobile e Jogos**, com foco em Front-End utilizando React. A plataforma tem como objetivo oferecer dicas e informações sobre adestramento felino de forma intuitiva, responsiva e acessível.
+👥 Integrante
+João Victor de Sousa Pessoa
 
-## 👥 Integrantes do grupo
+🚀 Funcionalidades Previstas
+Página inicial com boas-vindas e objetivo do site
 
-- João Victor de Sousa Pessoa
+Seção de Dicas de Adestramento
 
-## 🚀 Funcionalidades previstas
+Seção de Produtos Recomendados
 
-- Página inicial com boas-vindas e objetivo do site
-- Seção de dicas práticas sobre adestramento
-- Curiosidades sobre comportamento felino
-- Interface responsiva e amigável
-- Integração futura com Back End via `axios`
+Seção de Depoimentos
 
-## 🛠️ Tecnologias utilizadas
+Seção de Vídeos Tutoriais
 
-- [React](https://react.dev/)
-- [Vite](https://vitejs.dev/) — Para criação do esqueleto do projeto
-- [Axios](https://axios-http.com/) — Para comunicação HTTP com o Back End (futuro)
-- [CSS Modules] ou [Tailwind]
+Formulário de Contato integrado ao EmailJS
 
-## 🗂️ Estrutura do repositório
+Interface responsiva e amigável
 
-```bash
-src/
-├── assets/          # Imagens e ícones
-├── components/      # Componentes reutilizáveis
-├── pages/           # Telas principais
-├── styles/          # Estilos globais
-└── App.jsx          # Componente raiz
+Integração com Back-End via Axios
 
-## 🗺️ Manual
+🛠️ Tecnologias Utilizadas
+React
 
-Manual de Instalação e Execução
-Este projeto consiste em duas partes principais:
+Vite
 
-Back-End (Express)
+Axios
 
-Front-End (React com Vite)
+Express (Back-End)
 
-Abaixo estão as instruções para clonar, configurar e executar ambas as partes localmente.
+EmailJS (formulário de contato)
 
-Pré-requisitos
+CSS puro (sem frameworks, mas já preparado para futuros ajustes com Tailwind ou CSS Modules)
+
+📂 Estrutura do Repositório
+pgsql
+Copiar
+Editar
+cat-tips/
+├── backend/
+│   ├── index.cjs           # Servidor Express (Hello-World e /dicas)
+│   ├── package.json
+│   └── package-lock.json
+├── public/
+│   ├── index.html
+│   └── images/
+│       ├── banner-cat.jpg
+│       ├── clicker.jpg
+│       ├── guia.jpg
+│       └── petiscos.jpg
+├── src/
+│   ├── components/
+│   │   ├── Header.jsx
+│   │   ├── Hero.jsx
+│   │   ├── About.jsx
+│   │   ├── Tips.jsx
+│   │   ├── Products.jsx
+│   │   ├── Testimonials.jsx
+│   │   ├── Videos.jsx
+│   │   ├── ContactForm.jsx
+│   │   └── Footer.jsx
+│   ├── pages/
+│   │   └── Home.jsx
+│   ├── styles/
+│   │   └── Home.css
+│   ├── App.jsx
+│   └── main.jsx
+├── package.json            # Dependências do Front-End
+├── package-lock.json
+└── README.md               # Este arquivo
+🗺️ Manual de Instalação e Execução
+Este projeto é composto de dois módulos: o Back-End (Express) e o Front-End (React com Vite). A seguir, estão as instruções para configurar, instalar e executar cada parte localmente.
+
+1. Pré-requisitos
 Node.js (versão 16 ou superior)
 
 npm (geralmente instalado junto com o Node.js)
 
-Acesso à internet para instalação de pacotes e uso de EmailJS (no front-end)
+Internet para instalar pacotes e usar o EmailJS
 
-1. Clonar o repositório
-No terminal, rode:
+2. Clonar o Repositório
+No terminal, execute:
 
 bash
 Copiar
 Editar
 git clone https://github.com/vjctor/cat-tips.git
 cd cat-tips
-Você terá a seguinte estrutura:
-
-pgsql
-Copiar
-Editar
-cat-tips/
-├── backend/
-├── public/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── styles/
-│   ├── App.jsx
-│   └── main.jsx
-├── package.json
-├── package-lock.json
-└── README.md
-2. Configurar e Executar o Back-End
-Navegue até a pasta backend/:
+3. Configurar e Executar o Back-End
+Acesse a pasta backend:
 
 bash
 Copiar
@@ -88,7 +101,7 @@ bash
 Copiar
 Editar
 npm install
-Verifique que dentro de backend/ exista um arquivo chamado index.cjs (ou index.js) com o seguinte conteúdo mínimo:
+Verifique que exista o arquivo index.cjs (caso seja .js, ele deve conter "type": "module" no package.json). O conteúdo mínimo de index.cjs deve ser:
 
 js
 Copiar
@@ -120,15 +133,13 @@ app.get('/dicas', (_req, res) => {
 app.listen(PORT, () => {
   console.log(`Back-end rodando em http://127.0.0.1:${PORT}`);
 });
-Caso o arquivo seja index.js, acrescente "type": "module" no package.json ou renomeie para index.cjs.
-
-Rode o servidor:
+Inicie o servidor Express:
 
 bash
 Copiar
 Editar
 node index.cjs
-Você deverá ver no terminal:
+Você deverá ver a mensagem:
 
 arduino
 Copiar
@@ -139,61 +150,52 @@ Teste os endpoints em outra aba do terminal:
 bash
 Copiar
 Editar
+# Testa o /hello-world
 curl http://127.0.0.1:3001/hello-world
-Retornará:
+# Saída esperada: Hello, World!
 
-Copiar
-Editar
-Hello, World!
-E:
-
-bash
-Copiar
-Editar
+# Testa o /dicas
 curl http://127.0.0.1:3001/dicas
-Retornará o JSON com as dicas.
-
-3. Configurar e Executar o Front-End
-No terminal, volte para a raiz do projeto:
+# Saída esperada: JSON com a lista de dicas
+4. Configurar e Executar o Front-End
+Retorne à raiz do projeto:
 
 bash
 Copiar
 Editar
 cd ..
-Instale as dependências do front-end:
+Instale as dependências do Front-End:
 
 bash
 Copiar
 Editar
 npm install
-Configure o EmailJS (para o formulário de contato):
-
-Acesse https://www.emailjs.com/ e crie uma conta gratuita.
+Configure o EmailJS para o formulário de contato. No painel do EmailJS (https://www.emailjs.com/):
 
 Em Email Services, conecte seu e-mail (Gmail, Outlook, etc.) e copie o Service ID.
 
-Em Email Templates, crie um template com os placeholders from_name, reply_to e message e copie o Template ID.
+Em Email Templates, crie um template com os campos from_name, reply_to e message. Copie o Template ID.
 
 Em Account → User ID, copie o User ID.
 
-No painel do EmailJS, em Integration → Authorized domains, adicione http://localhost:5173.
+Em Integration → Authorized domains, adicione http://localhost:5173.
 
-No arquivo src/components/ContactForm.jsx, substitua as variáveis pelos seus valores:
+Abra o arquivo src/components/ContactForm.jsx e substitua os placeholders pelos seus valores do EmailJS:
 
 diff
 Copiar
 Editar
-// emailjs.sendForm(serviceID, templateID, formRef.current, userID)
-
-- emailjs.sendForm('service_xyz', 'template_abc', formRef.current, 'user_12345')
-+ emailjs.sendForm('SEU_SERVICE_ID', 'SEU_TEMPLATE_ID', formRef.current, 'SEU_USER_ID')
-Inicie o servidor de desenvolvimento do front-end:
+// Antes:
+emailjs.sendForm('service_xyz', 'template_abc', formRef.current, 'user_12345')
+// Depois:
+emailjs.sendForm('SEU_SERVICE_ID', 'SEU_TEMPLATE_ID', formRef.current, 'SEU_USER_ID')
+Inicie o servidor de desenvolvimento do Front-End:
 
 bash
 Copiar
 Editar
 npm run dev
-O Vite mostrará no terminal algo como:
+O Vite mostrará algo como:
 
 arduino
 Copiar
@@ -202,30 +204,30 @@ VITE v4.x.x  ready in 300 ms
 
 ➜  Local:   http://localhost:5173/
 ➜  Network: use --host to expose
-Abra o navegador em http://localhost:5173/ para ver o site funcionando.
+Abra o navegador e acesse http://localhost:5173/ para visualizar o site.
 
-4. Fluxo de Execução Completo
-Back-End:
+5. Fluxo Completo de Execução
+Back-End
 
-Acesse cat-tips/backend
+cd backend
 
-Rode npm install
+npm install
 
-Execute node index.cjs
+node index.cjs
 
-Verifique no terminal: Back-end rodando em http://127.0.0.1:3001
+Verificar “Back-end rodando em http://127.0.0.1:3001”
 
-Front-End:
+Front-End
 
-Na pasta raiz (cat-tips), rode npm install
+Na raiz: npm install
 
-Abra src/components/ContactForm.jsx e configure os IDs do EmailJS
+Configurar IDs do EmailJS em src/components/ContactForm.jsx
 
-Execute npm run dev
+npm run dev
 
-Acesse http://localhost:5173/ no navegador
+Acessar http://localhost:5173/
 
-5. Estrutura Final do Projeto
+6. Estrutura Final do Projeto
 pgsql
 Copiar
 Editar
@@ -261,11 +263,17 @@ cat-tips/
 ├── package.json
 ├── package-lock.json
 └── README.md
-6. Observações Finais
-Caso altere a porta do back-end, atualize a chamada Axios em src/components/Tips.jsx para apontar para http://127.0.0.1:<SUA_PORTA>/dicas.
+7. Observações Finais
+Se você alterar a porta do Back-End, lembre-se de atualizar as chamadas Axios em src/components/Tips.jsx para apontar para a nova porta (por exemplo, http://127.0.0.1:4000/dicas).
 
-Se usar outra porta no front-end, ajuste o domain autorizado no painel EmailJS para refletir http://localhost:<SUA_PORTA>.
+Caso mude a porta do Front-End (Vite), ajuste também o domínio autorizado no painel do EmailJS (http://localhost:<SUA_PORTA>).
 
-Para dispor o projeto em produção, é necessário configurar ambiente (variáveis de ambiente para IDs do EmailJS, build do Vite e implantação em servidor).
+Para disponibilizar em produção, será necessário:
 
-Com esse manual, você conseguirá rodar e visualizar todas as funcionalidades (dicas dinâmicas, formulário de contato funcional, vídeos incorporados, produtos com imagem, header fixo etc.). Qualquer dúvida, basta revisar cada etapa em sequência para confirmar que não faltou nenhuma configuração.
+Configurar variáveis de ambiente para os IDs do EmailJS (não deixar em texto puro).
+
+Executar npm run build no Front-End (gera a pasta dist/).
+
+Configurar um servidor web (Nginx, Vercel, Netlify etc.) para servir a pasta dist/ e expor o Back-End.
+
+Pronto! Agora você consegue clonar, instalar, configurar e executar tanto o Back-End quanto o Front-End do Cat-Tips localmente. Qualquer dúvida, consulte os passos acima ou abra uma issue. 😊
